@@ -22,26 +22,26 @@ export default function AdminDashboard() {
   }, []);
 
   const loadDashboardStats = async (retryCount = 0) => {
-    setLoading(true);
-    setError('');
-    let success = false;
     try {
+      if (retryCount === 0) setLoading(true);
+      setError('');
+      
       const data = await api.reports.getDashboard();
       if (data.success) {
         setKpis(data.kpis);
         setRecentPayments(data.recentPayments);
         setChartData(data.charts.revenueChart);
-        success = true;
+        setLoading(false);
+      } else {
+        throw new Error(data.message || 'Failed to fetch dashboard data');
       }
     } catch (err) {
-      if (retryCount < 2) {
-        console.warn('Dashboard fetch failed, retrying...', err);
-        setTimeout(() => loadDashboardStats(retryCount + 1), 500);
-        return;
-      }
-      setError('Could not connect to the reporting service. Please ensure the backend server is running.');
-    } finally {
-      if (success || retryCount >= 2) {
+      if (retryCount < 3) {
+        console.warn(`Dashboard fetch failed (attempt ${retryCount + 1}), retrying...`, err);
+        setTimeout(() => loadDashboardStats(retryCount + 1), 800);
+      } else {
+        console.error('Dashboard fetch error:', err);
+        setError('Could not connect to the reporting service. Please ensure the backend server is running.');
         setLoading(false);
       }
     }
