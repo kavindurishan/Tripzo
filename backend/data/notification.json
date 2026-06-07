@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "pbreuywaqdzq0rukg9gm",
+    "user": "9emsefecki6egm4vlfcqdl",
+    "title": "Welcome to Tripzo!",
+    "message": "Hello Test User, welcome to Tripzo! Search and book your journey now.",
+    "type": "Info",
+    "read": false,
+    "createdAt": "2026-05-21T07:27:55.680Z",
+    "updatedAt": "2026-05-21T07:27:55.680Z"
+  },
+  {
+    "_id": "tke7ikqadaldwysft3uk2j",
+    "user": "9emsefecki6egm4vlfcqdl",
+    "title": "Booking Confirmed!",
+    "message": "Your booking (ID: pa3f2yfilff30q1mjuh) for seats 1A, 1B is confirmed. Total Paid: $27.",
+    "type": "Booking",
+    "read": false,
+    "createdAt": "2026-05-21T07:33:26.125Z",
+    "updatedAt": "2026-05-21T07:33:26.125Z"
+  },
+  {
+    "_id": "w5vhoxv3llbovuaj3xw2dm",
+    "user": "4gxnattkh5asxojr09tr",
+    "title": "Booking Confirmed!",
+    "message": "Your booking (ID: 4m1njpqvqkh7hmk5hr78km) for seats 1B is confirmed. Total Paid: $20.",
+    "type": "Booking",
+    "read": true,
+    "createdAt": "2026-05-22T08:25:12.369Z",
+    "updatedAt": "2026-05-22T08:29:54.422Z"
+  }
+]

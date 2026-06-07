@@ -1,0 +1,167 @@
+<svg 
+  viewBox="0 0 390 120" 
+  fill="none" 
+  xmlns="http://www.w3.org/2000/svg"
+  width="390"
+  height="120"
+>
+  <defs>
+    {/* Dynamic Glow Filter for the Location Pin */}
+    <filter id="cyanGlow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    {/* 100% Transparent Mask for Walking Traveler cutout inside Letter R */}
+    <mask id="travelerMask">
+      {/* Solid white allows letter content to remain fully visible */}
+      <rect x="0" y="0" width="390" height="120" fill="white" />
+      
+      {/* Black shapes cut out perfectly transparent negative space */}
+      {/* Traveler Head */}
+      <circle cx="98" cy="63" r="3.8" fill="black" />
+      
+      {/* Traveler Body & Walking Stance Legs */}
+      <path 
+        d="M96 68.5 H100 L102 78 L99.5 89 H96.5 L98 79 L95.5 81 L94.5 89 H91.5 L93.5 77 L92 70 C92 69 93.5 68.5 96 68.5 Z" 
+        fill="black" 
+      />
+      
+      {/* Tilted Trolley Suitcase behind traveler */}
+      <rect 
+        x="84" 
+        y="68" 
+        width="6" 
+        height="11" 
+        rx="0.8" 
+        transform="rotate(-15 87 73)" 
+        fill="black" 
+      />
+      
+      {/* Suitcase Handle connector */}
+      <path 
+        d="M88.5 67 L92.5 70" 
+        stroke="black" 
+        strokeWidth="1.2" 
+        strokeLinecap="round" 
+      />
+    </mask>
+
+    {/* 100% Transparent Mask for Bus Silhouette counter-cutout inside Letter O */}
+    <mask id="busMask">
+      {/* Solid white allows letter outer ring to remain visible */}
+      <rect x="0" y="0" width="390" height="120" fill="white" />
+      
+      {/* Black shapes represent the hollow cutout framing the luxury bus */}
+      {/* Main Bus Frame */}
+      <rect x="250" y="37" width="36" height="34" rx="4.5" fill="black" />
+      
+      {/* Side view mirror links */}
+      <path d="M247 44 Q250 46 250 48" stroke="black" strokeWidth="1.8" fill="none" />
+      <path d="M291 44 Q288 46 288 48" stroke="black" strokeWidth="1.8" fill="none" />
+    </mask>
+  </defs>
+  
+  {/* 1. T - Solid geometric block letter */}
+  <path 
+    d="M20 15 H60 V27 H46 V90 H34 V27 H20 Z" 
+    fill="white"
+  />
+  
+  {/* 2. R - Solid block letter with integrated walking traveler transparent mask */}
+  <g mask="url(#travelerMask)">
+    <path 
+      d="M68 15 H98 C107 15 114 21 114 32.5 C114 44 107 50 98 50 L114 90 H100 L86 51 H80 V90 H68 V15 Z" 
+      fill="white" 
+    />
+  </g>
+  
+  {/* 3. I - Shorter vertical stem to give space for location pin */}
+  <path 
+    d="M122 36 H134 V90 H122 Z" 
+    fill="white" 
+  />
+  
+  {/* Royal Blue Location Map Pin atop Letter I stem */}
+  <g style="transform-origin: 128px 29px;">
+    {/* Shadow floor ring */}
+    <ellipse cx="128" cy="34" rx="4.5" ry="1.5" fill="rgba(2, 132, 199, 0.2)" />
+    
+    {/* Pin Teardrop Shape */}
+    <path 
+      d="M128 4 C122.5 4 118 8.5 118 14 C118 20.5 128 29.5 128 29.5 C128 29.5 138 20.5 138 14 C138 8.5 133.5 4 128 4 Z" 
+      fill="#0284c7" 
+      filter="url(#cyanGlow)" 
+    />
+    
+    {/* Hollow transparent center pin hole */}
+    <circle cx="128" cy="14" r="3.2" fill="#020617" />
+  </g>
+  
+  {/* 4. P - Solid block letter */}
+  <g>
+    <path 
+      d="M142 15 H174 C182 15 188 21 188 32.5 C188 44 182 50 174 50 H154 V90 H142 V15 Z" 
+      fill="white" 
+    />
+    {/* Inner negative space counter of P */}
+    <path 
+      d="M154 25 H172 C175 25 177 27 177 32.5 C177 38 175 40 172 40 H154 Z" 
+      fill="#020617" 
+    />
+  </g>
+  
+  {/* 5. Z - Sharp diagonal geometric block letter */}
+  <path 
+    d="M196 15 H236 V29 L210 76 H236 V90 H196 V76 L222 29 H196 Z" 
+    fill="white" 
+  />
+  
+  {/* 6. O - Oval letter with integrated luxury bus cutout and high-resolution details */}
+  <g>
+    {/* Letter O Frame with inner cutout mask */}
+    <path 
+      d="M244 15 H298 C308 15 314 23 314 52.5 C314 82 308 90 298 90 H244 C234 90 228 82 228 52.5 C228 23 234 15 244 15 Z" 
+      fill="white"
+      mask="url(#busMask)"
+    />
+    
+    {/* Detailed Front-view Luxury Bus elements drawn within the transparent cutout frame */}
+    <g transform="translate(2, 1)">
+      {/* Windshield Glass */}
+      <rect x="254" y="41" width="30" height="13" rx="1.5" fill="white" />
+      
+      {/* Windshield wiper line (subtle detail) */}
+      <path d="M266 52 L272 48" stroke="#020617" strokeWidth="0.8" />
+      
+      {/* Gold glowing headlights */}
+      <circle cx="258" cy="62" r="2.2" fill="#eab308" />
+      <circle cx="280" cy="62" r="2.2" fill="#eab308" />
+      
+      {/* Grill bars */}
+      <rect x="264" y="61" width="10" height="3" rx="0.5" fill="#64748b" />
+      
+      {/* Tires visible at bottom */}
+      <rect x="253" y="69" width="6" height="3.5" rx="1" fill="#334155" />
+      <rect x="279" y="69" width="6" height="3.5" rx="1" fill="#334155" />
+    </g>
+  </g>
+
+  {/* Tagline: — BUS BOOKING SYSTEM — centered and spaced elegantly */}
+  <g opacity="0.8">
+    <path d="M20 106 H120" strokeWidth="1.5" stroke="white" />
+    <text 
+      x="167" 
+      y="110" 
+      fill="white" 
+      fontSize="10.5" 
+      fontWeight="bold" 
+      letterSpacing="4" 
+      textAnchor="middle" 
+      fontFamily="sans-serif"
+    >
+      BUS BOOKING SYSTEM
+    </text>
+    <path d="M214 106 H314" strokeWidth="1.5" stroke="white" />
+  </g>
+</svg>

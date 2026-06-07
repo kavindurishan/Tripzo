@@ -1,0 +1,56 @@
+[
+  {
+    "_id": "14j596o560ugtf1cn3qb2h",
+    "bus": "0rpgma8vjglooeuuq59qd",
+    "route": "0s0axw5zxnpebr3omzqj4e",
+    "departureDate": "2026-05-22",
+    "departureTime": "07:30",
+    "arrivalTime": "10:45",
+    "ticketPrice": 15,
+    "availableSeats": 38,
+    "status": "Active",
+    "createdAt": "2026-05-21T07:08:18.885Z",
+    "updatedAt": "2026-05-22T08:19:05.061Z",
+    "isEveryday": true
+  },
+  {
+    "_id": "aixh4tyaaja79tsbylzd8o",
+    "bus": "oueepvmrxhpkjd60k65k",
+    "route": "0s0axw5zxnpebr3omzqj4e",
+    "departureDate": "2026-05-21",
+    "departureTime": "14:00",
+    "arrivalTime": "17:15",
+    "ticketPrice": 18,
+    "availableSeats": 35,
+    "status": "Active",
+    "createdAt": "2026-05-21T07:08:18.886Z",
+    "updatedAt": "2026-05-22T08:25:12.359Z",
+    "isEveryday": true
+  },
+  {
+    "_id": "rg1jlgac7zb6arkubyqu8a",
+    "bus": "zzh3p6xsdmxycvhbtxslq",
+    "route": "ityy6ahygk9iz2k4l23m4p",
+    "departureDate": "2026-05-21",
+    "departureTime": "09:00",
+    "arrivalTime": "11:00",
+    "ticketPrice": 12,
+    "availableSeats": 44,
+    "status": "Active",
+    "createdAt": "2026-05-21T07:08:18.886Z",
+    "updatedAt": "2026-05-21T07:08:18.886Z"
+  },
+  {
+    "_id": "9n58rlijk2lshvzhwzzmhj",
+    "bus": "0rpgma8vjglooeuuq59qd",
+    "route": "ityy6ahygk9iz2k4l23m4p",
+    "departureDate": "2026-05-22",
+    "departureTime": "08:00",
+    "arrivalTime": "10:00",
+    "ticketPrice": 16,
+    "availableSeats": 40,
+    "status": "Active",
+    "createdAt": "2026-05-21T07:08:18.887Z",
+    "updatedAt": "2026-05-21T07:08:18.887Z"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "pa3f2yfilff30q1mjuh",
+    "customer": "9emsefecki6egm4vlfcqdl",
+    "schedule": "14j596o560ugtf1cn3qb2h",
+    "passengers": [
+      {
+        "fullName": "John Doe",
+        "age": 32,
+        "gender": "Male",
+        "seatNumber": "1A"
+      },
+      {
+        "fullName": "Jane Doe",
+        "age": 28,
+        "gender": "Female",
+        "seatNumber": "1B"
+      }
+    ],
+    "seatsBooked": [
+      "1A",
+      "1B"
+    ],
+    "totalAmount": 27,
+    "paymentStatus": "Paid",
+    "bookingStatus": "Confirmed",
+    "createdAt": "2026-05-21T07:32:45.218Z",
+    "updatedAt": "2026-05-21T07:33:26.124Z"
+  },
+  {
+    "_id": "i38ohoprg9afnvfqvl743e",
+    "customer": "4gxnattkh5asxojr09tr",
+    "schedule": "aixh4tyaaja79tsbylzd8o",
+    "passengers": [
+      {
+        "fullName": "Test User",
+        "age": 25,
+        "gender": "Male",
+        "seatNumber": "1A"
+      }
+    ],
+    "seatsBooked": [
+      "1A"
+    ],
+    "totalAmount": 20,
+    "convenienceFee": 2,
+    "paymentStatus": "Pending",
+    "bookingStatus": "Pending",
+    "createdAt": "2026-05-22T08:22:49.959Z",
+    "updatedAt": "2026-05-22T08:22:49.959Z"
+  },
+  {
+    "_id": "4m1njpqvqkh7hmk5hr78km",
+    "customer": "4gxnattkh5asxojr09tr",
+    "schedule": "aixh4tyaaja79tsbylzd8o",
+    "passengers": [
+      {
+        "fullName": "Test User",
+        "age": 25,
+        "gender": "Male",
+        "seatNumber": "1B"
+      }
+    ],
+    "seatsBooked": [
+      "1B"
+    ],
+    "totalAmount": 20,
+    "convenienceFee": 2,
+    "paymentStatus": "Paid",
+    "bookingStatus": "Confirmed",
+    "createdAt": "2026-05-22T08:24:38.525Z",
+    "updatedAt": "2026-05-22T08:25:12.367Z"
+  }
+]

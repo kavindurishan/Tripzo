@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "0rpgma8vjglooeuuq59qd",
+    "busNumber": "NE-0406",
+    "name": "KRM Express",
+    "type": "Luxury",
+    "seatCapacity": 54,
+    "facilities": [
+      "Wi-Fi",
+      "Charging",
+      "AC",
+      "TV"
+    ],
+    "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=600",
+    "status": "Available",
+    "createdAt": "2026-05-21T07:08:18.883Z",
+    "updatedAt": "2026-05-22T07:22:21.616Z"
+  },
+  {
+    "_id": "zzh3p6xsdmxycvhbtxslq",
+    "busNumber": "NI-0908",
+    "name": "KRM Express",
+    "type": "Normal",
+    "seatCapacity": 54,
+    "facilities": [
+      "TV",
+      "Charging"
+    ],
+    "image": "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=600",
+    "status": "Available",
+    "createdAt": "2026-05-21T07:08:18.883Z",
+    "updatedAt": "2026-05-22T07:23:01.701Z"
+  },
+  {
+    "_id": "oueepvmrxhpkjd60k65k",
+    "busNumber": "NP-1042",
+    "name": "NCG Express",
+    "type": "Semi Luxury",
+    "seatCapacity": 56,
+    "facilities": [
+      "Wi-Fi",
+      "Charging",
+      "TV"
+    ],
+    "image": "https://images.unsplash.com/photo-1562620644-65ab47390225?auto=format&fit=crop&q=80&w=600",
+    "status": "Available",
+    "createdAt": "2026-05-21T07:08:18.883Z",
+    "updatedAt": "2026-05-22T07:23:24.156Z"
+  }
+]

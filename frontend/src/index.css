@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-950 font-sans;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  @apply backdrop-blur-md bg-white/70 dark:bg-slate-900/60 border border-white/20 dark:border-slate-800/50 shadow-lg shadow-slate-100/10 dark:shadow-none;
+}
+
+.glass-card {
+  @apply backdrop-blur-md bg-white/85 dark:bg-slate-900/80 border border-slate-200/50 dark:border-slate-800/60 shadow-md transition-all duration-300 hover:shadow-lg;
+}
+
+.glass-input {
+  @apply backdrop-blur-sm bg-white/50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all;
+}
+
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Ticket Cutout Effect */
+.ticket-dashed-border {
+  position: relative;
+}
+.ticket-dashed-border::before, .ticket-dashed-border::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  @apply bg-slate-50 dark:bg-slate-950;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.ticket-dashed-border::before {
+  left: -10px;
+}
+.ticket-dashed-border::after {
+  right: -10px;
+}

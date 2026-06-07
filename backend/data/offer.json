@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "ui1kwr3g8yos0uff9pffm",
+    "code": "TRIPZO10",
+    "discountType": "Percentage",
+    "value": 10,
+    "minBookingValue": 10,
+    "expiryDate": "2026-12-31",
+    "status": "Active",
+    "createdAt": "2026-05-21T07:08:18.888Z",
+    "updatedAt": "2026-05-21T07:08:18.888Z"
+  },
+  {
+    "_id": "3538bbar2kqf3eeukmgwtb",
+    "code": "WELCOME50",
+    "discountType": "Fixed",
+    "value": 5,
+    "minBookingValue": 20,
+    "expiryDate": "2026-12-31",
+    "status": "Active",
+    "createdAt": "2026-05-21T07:08:18.888Z",
+    "updatedAt": "2026-05-21T07:08:18.888Z"
+  }
+]

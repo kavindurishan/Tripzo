@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "vrk4b1utb4rhxe37r716we",
+    "booking": "pa3f2yfilff30q1mjuh",
+    "customer": "9emsefecki6egm4vlfcqdl",
+    "amount": 27,
+    "paymentMethod": "Card",
+    "status": "Paid",
+    "transactionId": "TXN_Q63VWK6S",
+    "paymentDate": "2026-05-21T07:33:26.120Z",
+    "createdAt": "2026-05-21T07:33:26.121Z",
+    "updatedAt": "2026-05-21T07:33:26.122Z"
+  },
+  {
+    "_id": "1v1dltwfcdb2fgxrckeazn",
+    "booking": "4m1njpqvqkh7hmk5hr78km",
+    "customer": "4gxnattkh5asxojr09tr",
+    "amount": 20,
+    "paymentMethod": "Cash",
+    "status": "Paid",
+    "transactionId": "TXN_MA5IZDFK",
+    "paymentDate": "2026-05-22T08:25:12.360Z",
+    "createdAt": "2026-05-22T08:25:12.363Z",
+    "updatedAt": "2026-05-22T08:25:12.363Z"
+  }
+]
