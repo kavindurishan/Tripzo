@@ -141,7 +141,8 @@ const seedDatabase = async () => {
       arrivalTime: '10:45',
       ticketPrice: 15,
       availableSeats: bus1.seatCapacity,
-      isEveryday: true,
+      frequency: 'Everyday',
+      selectedDays: [],
       status: 'Active'
     });
 

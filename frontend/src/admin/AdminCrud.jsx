@@ -548,10 +548,10 @@ export function ManageRoutes() {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right space-x-1.5">
-                    <button onClick={() => handleOpenEdit(r)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350">
+                    <button onClick={() => handleOpenEdit(r)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350 flex items-center justify-center">
                       <Edit3 className="w-3.5 h-3.5" />
                     </button>
-                    <button onClick={() => handleDelete(r._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose">
+                    <button onClick={() => handleDelete(r._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose flex items-center justify-center">
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </td>
@@ -644,7 +644,8 @@ export function ManageSchedules() {
   const [arrivalTime, setArrivalTime] = useState('11:00');
   const [ticketPrice, setTicketPrice] = useState(15);
   const [status, setStatus] = useState('Active');
-  const [isEveryday, setIsEveryday] = useState(false);
+  const [frequency, setFrequency] = useState('Everyday');
+  const [selectedDays, setSelectedDays] = useState([]);
 
   useEffect(() => {
     loadSchedulesAndOptions();
@@ -680,7 +681,8 @@ export function ManageSchedules() {
     setArrivalTime('11:00');
     setTicketPrice(15);
     setStatus('Active');
-    setIsEveryday(false);
+    setFrequency('Everyday');
+    setSelectedDays([]);
     setModalOpen(true);
   };
 
@@ -693,14 +695,15 @@ export function ManageSchedules() {
     setArrivalTime(sched.arrivalTime);
     setTicketPrice(sched.ticketPrice);
     setStatus(sched.status);
-    setIsEveryday(sched.isEveryday || false);
+    setFrequency(sched.frequency || 'Everyday');
+    setSelectedDays(sched.selectedDays || []);
     setModalOpen(true);
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const body = { bus, route, departureDate, departureTime, arrivalTime, ticketPrice, status, isEveryday };
+      const body = { bus, route, departureDate, departureTime, arrivalTime, ticketPrice, status, frequency, selectedDays };
       if (editingSchedule) {
         await api.schedules.update(editingSchedule._id, body);
       } else {
@@ -774,10 +777,10 @@ export function ManageSchedules() {
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right space-x-1.5">
-                    <button onClick={() => handleOpenEdit(s)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350">
+                    <button onClick={() => handleOpenEdit(s)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350 flex items-center justify-center">
                       <Edit3 className="w-3.5 h-3.5" />
                     </button>
-                    <button onClick={() => handleDelete(s._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose">
+                    <button onClick={() => handleDelete(s._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose flex items-center justify-center">
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </td>
@@ -846,17 +849,38 @@ export function ManageSchedules() {
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2 py-1 select-none cursor-pointer">
-                <input
-                  type="checkbox"
-                  id="isEveryday"
-                  checked={isEveryday}
-                  onChange={e => setIsEveryday(e.target.checked)}
-                  className="w-4 h-4 rounded border-slate-350 dark:border-slate-800 text-primary-600 focus:ring-primary-500 bg-slate-50 dark:bg-slate-955"
-                />
-                <label htmlFor="isEveryday" className="font-semibold text-slate-600 dark:text-slate-400 cursor-pointer">
-                  Everyday Schedule (Daily recurrence)
-                </label>
+              <div className="space-y-3 pt-2">
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Running Days</label>
+                  <select value={frequency} onChange={e => setFrequency(e.target.value)} className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-955 border border-slate-200 dark:border-slate-855 rounded-xl font-semibold dark:text-white">
+                    <option value="Everyday">Everyday</option>
+                    <option value="Weekdays">Weekdays</option>
+                    <option value="Weekends">Weekends</option>
+                    <option value="Specific Days">Specific Days</option>
+                  </select>
+                </div>
+                
+                {frequency === 'Specific Days' && (
+                  <div>
+                    <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Select Days</label>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-1">
+                      {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(day => (
+                        <label key={day} className="flex items-center space-x-2 text-xs font-semibold cursor-pointer">
+                          <input 
+                            type="checkbox" 
+                            checked={selectedDays.includes(day)} 
+                            onChange={(e) => {
+                              if (e.target.checked) setSelectedDays([...selectedDays, day]);
+                              else setSelectedDays(selectedDays.filter(d => d !== day));
+                            }} 
+                            className="w-4 h-4 rounded text-primary-500 bg-slate-50 dark:bg-slate-955 border-slate-350 dark:border-slate-800" 
+                          />
+                          <span>{day.substring(0,3)}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

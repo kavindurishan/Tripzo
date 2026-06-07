@@ -96,13 +96,17 @@ router.post('/auth/register', async (req, res) => {
 // Login (All Roles)
 router.post('/auth/login', async (req, res) => {
   try {
-    const { email, password } = req.reqBody || req.body;
+    const { email: usernameOrEmail, password } = req.reqBody || req.body;
     
-    if (!email || !password) {
-      return res.status(400).json({ success: false, message: 'Email and password are required.' });
+    if (!usernameOrEmail || !password) {
+      return res.status(400).json({ success: false, message: 'Username/Email and password are required.' });
     }
 
-    const user = await db.findOne('User', { email });
+    let user = await db.findOne('User', { email: usernameOrEmail });
+    if (!user) {
+      user = await db.findOne('User', { fullName: usernameOrEmail });
+    }
+    
     if (!user) {
       return res.status(400).json({ success: false, message: 'Invalid credentials.' });
     }
@@ -343,8 +347,27 @@ router.get('/schedules', async (req, res) => {
         if (to && item.route.destination.toLowerCase() !== to.toLowerCase()) {
           match = false;
         }
-        if (date && item.departureDate !== date && !item.isEveryday) {
-          match = false;
+        if (date) {
+          const searchDate = new Date(date);
+          const dayOfWeek = searchDate.toLocaleString('en-US', { weekday: 'long' });
+          let runsOnDate = false;
+          const frequency = item.frequency || (item.isEveryday ? 'Everyday' : 'Everyday');
+          
+          if (frequency === 'Everyday') {
+            runsOnDate = true;
+          } else if (frequency === 'Weekdays' && !['Saturday', 'Sunday'].includes(dayOfWeek)) {
+            runsOnDate = true;
+          } else if (frequency === 'Weekends' && ['Saturday', 'Sunday'].includes(dayOfWeek)) {
+            runsOnDate = true;
+          } else if (frequency === 'Specific Days' && item.selectedDays && item.selectedDays.includes(dayOfWeek)) {
+            runsOnDate = true;
+          }
+          
+          if (!runsOnDate && item.departureDate !== date) {
+            match = false;
+          } else if (match && (runsOnDate || item.departureDate === date)) {
+            item.departureDate = date;
+          }
         }
         return match;
       });

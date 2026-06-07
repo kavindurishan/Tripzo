@@ -47,7 +47,8 @@ const scheduleSchema = new mongoose.Schema({
   arrivalTime: { type: String, required: true }, // HH:MM
   ticketPrice: { type: Number, required: true },
   availableSeats: { type: Number, required: true },
-  isEveryday: { type: Boolean, default: false },
+  frequency: { type: String, enum: ['Everyday', 'Weekdays', 'Weekends', 'Specific Days'], default: 'Everyday' },
+  selectedDays: [{ type: String }],
   status: { type: String, enum: ['Active', 'Completed', 'Cancelled'], default: 'Active' }
 }, { timestamps: true });
 
