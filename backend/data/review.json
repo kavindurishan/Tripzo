@@ -1,20 +1,20 @@
 [
   {
-    "_id": "q4edk8jwh7hjp5b30oiiq",
-    "customer": "3164nh4hk04j17vy1hvbgd",
-    "bus": "0rpgma8vjglooeuuq59qd",
+    "_id": "6hx8zdiyg5nfxoqawbptkm",
+    "customer": "sqix2qt372ito6vk115krp",
+    "bus": "8bm8l6d23ucki7zkpgx8n",
     "rating": 5,
     "comment": "Excellent journey, extremely comfortable luxury seats and fast Highway route.",
-    "createdAt": "2026-05-21T07:08:18.889Z",
-    "updatedAt": "2026-05-21T07:08:18.889Z"
+    "createdAt": "2026-06-07T07:14:16.702Z",
+    "updatedAt": "2026-06-07T07:14:16.703Z"
   },
   {
-    "_id": "2namnx38n3fqc1gce3go0a",
-    "customer": "3164nh4hk04j17vy1hvbgd",
-    "bus": "zzh3p6xsdmxycvhbtxslq",
+    "_id": "1m396euq2ctxbqit1zvrlr",
+    "customer": "sqix2qt372ito6vk115krp",
+    "bus": "yr4e9v77ugbj4o1fjs8gr7",
     "rating": 4,
     "comment": "Decent, charging port was working well. Highly recommended.",
-    "createdAt": "2026-05-21T07:08:18.889Z",
-    "updatedAt": "2026-05-21T07:08:18.889Z"
+    "createdAt": "2026-06-07T07:14:16.704Z",
+    "updatedAt": "2026-06-07T07:14:16.704Z"
   }
 ]

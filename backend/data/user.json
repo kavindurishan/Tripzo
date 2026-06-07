@@ -1,46 +1,38 @@
 [
   {
-    "_id": "4gxnattkh5asxojr09tr",
+    "_id": "fpinb6vfg1mhe69khc7mo",
+    "username": "admin",
     "fullName": "Tripzo Administrator",
     "email": "admin@tripzo.com",
     "phone": "+94 77 123 4567",
-    "password": "$2a$10$iuCl/0q2B/SPT8VnLGR.ZOt685A0TbQwGGggMjNrQ/rkr5RiXpr22",
+    "password": "$2a$10$plCo4Jm2gP8gRX24Ax8dfeInagVZfsnTzSedxktxI8i88jPiex5bu",
     "role": "Admin",
     "status": "Active",
-    "createdAt": "2026-05-21T07:08:18.879Z",
-    "updatedAt": "2026-05-21T07:08:18.880Z"
+    "createdAt": "2026-06-07T07:14:16.670Z",
+    "updatedAt": "2026-06-07T07:14:16.671Z"
   },
   {
-    "_id": "f8uubufxflj5dcgfa36fpf",
+    "_id": "ggwcczbygnwvc2v6q1ff2c",
+    "username": "operator",
     "fullName": "Southern Transit Operators",
     "email": "operator@tripzo.com",
     "phone": "+94 77 987 6543",
-    "password": "$2a$10$iuCl/0q2B/SPT8VnLGR.ZOlMi55JLt..hwneoFnt4YtBdUAeiUa8m",
+    "password": "$2a$10$plCo4Jm2gP8gRX24Ax8dfePa8Wx2.I0wqA8OD9Sj4t3PNTQJIkhB6",
     "role": "Operator",
     "status": "Active",
-    "createdAt": "2026-05-21T07:08:18.881Z",
-    "updatedAt": "2026-05-21T07:08:18.881Z"
+    "createdAt": "2026-06-07T07:14:16.672Z",
+    "updatedAt": "2026-06-07T07:14:16.672Z"
   },
   {
-    "_id": "3164nh4hk04j17vy1hvbgd",
+    "_id": "sqix2qt372ito6vk115krp",
+    "username": "kavindu",
     "fullName": "Kavindu Rishan",
     "email": "customer@tripzo.com",
     "phone": "+94 71 555 4444",
-    "password": "$2a$10$iuCl/0q2B/SPT8VnLGR.ZOP/EfWisGITwzdr2R6Vmc..Q.uqp9WSO",
+    "password": "$2a$10$plCo4Jm2gP8gRX24Ax8dfepHd1k/zDJ4/McWAJZtaVyDsBNam919.",
     "role": "Customer",
     "status": "Active",
-    "createdAt": "2026-05-21T07:08:18.882Z",
-    "updatedAt": "2026-05-21T07:08:18.882Z"
-  },
-  {
-    "_id": "9emsefecki6egm4vlfcqdl",
-    "fullName": "Test User",
-    "email": "testuser@tripzo.com",
-    "phone": "+94 77 111 2222",
-    "password": "$2a$10$EbKUffc4AHXsVyVxofhkFe9AcPsABp71Vi.7m1WBj323Bo4A1WHdK",
-    "role": "Customer",
-    "status": "Active",
-    "createdAt": "2026-05-21T07:27:55.655Z",
-    "updatedAt": "2026-05-21T07:27:55.655Z"
+    "createdAt": "2026-06-07T07:14:16.673Z",
+    "updatedAt": "2026-06-07T07:14:16.673Z"
   }
 ]

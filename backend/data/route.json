@@ -1,28 +1,56 @@
 [
   {
-    "_id": "5lg539ang7m6yhty19dn9",
-    "startingLocation": "Panadura",
+    "_id": "uez8fg4ktsnrulip3tvmai",
+    "startingLocation": "Colombo",
     "destination": "Kandy",
-    "distance": 150,
-    "duration": "4h",
+    "distance": 115,
+    "duration": "3h 15m",
     "stops": [
       {
-        "name": "Nugegoda",
-        "distanceOffset": 0,
-        "timeOffset": "30m"
+        "name": "Kadawatha Highway Entrance",
+        "distanceOffset": 15,
+        "timeOffset": "25m"
       },
       {
-        "name": "Battaramulla",
-        "distanceOffset": 0,
-        "timeOffset": "30m"
+        "name": "Kegalle Transit Hub",
+        "distanceOffset": 70,
+        "timeOffset": "2h 0m"
       },
       {
-        "name": "Kaduwela",
-        "distanceOffset": 0,
-        "timeOffset": "30m"
+        "name": "Peradeniya Junction",
+        "distanceOffset": 105,
+        "timeOffset": "3h 0m"
       }
     ],
-    "createdAt": "2026-05-22T08:41:28.810Z",
-    "updatedAt": "2026-05-22T08:41:28.810Z"
+    "status": "Active",
+    "createdAt": "2026-06-07T07:14:16.679Z",
+    "updatedAt": "2026-06-07T07:14:16.679Z"
+  },
+  {
+    "_id": "gdotnd12jyl19bhl8lpo2r",
+    "startingLocation": "Colombo",
+    "destination": "Galle",
+    "distance": 125,
+    "duration": "2h 0m",
+    "stops": [
+      {
+        "name": "Kottawa Highway Interchange",
+        "distanceOffset": 20,
+        "timeOffset": "15m"
+      },
+      {
+        "name": "Welipenna Service Area",
+        "distanceOffset": 65,
+        "timeOffset": "1h 0m"
+      },
+      {
+        "name": "Nayapamula Exit",
+        "distanceOffset": 110,
+        "timeOffset": "1h 45m"
+      }
+    ],
+    "status": "Active",
+    "createdAt": "2026-06-07T07:14:16.679Z",
+    "updatedAt": "2026-06-07T07:14:16.679Z"
   }
 ]

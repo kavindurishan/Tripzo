@@ -15,6 +15,7 @@ export function ManageUsers() {
   const [editingUser, setEditingUser] = useState(null);
   
   // Form inputs
+  const [username, setUsername] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -40,6 +41,7 @@ export function ManageUsers() {
 
   const handleOpenAdd = () => {
     setEditingUser(null);
+    setUsername('');
     setFullName('');
     setEmail('');
     setPhone('');
@@ -51,6 +53,7 @@ export function ManageUsers() {
 
   const handleOpenEdit = (user) => {
     setEditingUser(user);
+    setUsername(user.username || '');
     setFullName(user.fullName);
     setEmail(user.email);
     setPhone(user.phone);
@@ -63,7 +66,7 @@ export function ManageUsers() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const body = { fullName, email, phone, role, status };
+      const body = { username, fullName, email, phone, role, status };
       if (password) body.password = password;
 
       if (editingUser) {
@@ -121,7 +124,10 @@ export function ManageUsers() {
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-350">
               {users.map(u => (
                 <tr key={u._id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/10">
-                  <td className="px-6 py-4 font-bold text-slate-900 dark:text-white">{u.fullName}</td>
+                  <td className="px-6 py-4">
+                    <p className="font-bold text-slate-900 dark:text-white">{u.fullName}</p>
+                    <p className="text-[10px] font-bold text-slate-400 mt-0.5">@{u.username || 'user'}</p>
+                  </td>
                   <td className="px-6 py-4">
                     <p className="font-bold">{u.email}</p>
                     <p className="text-slate-400 text-[10px]">{u.phone}</p>
@@ -136,13 +142,15 @@ export function ManageUsers() {
                       {u.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-right space-x-1.5 no-print">
-                    <button onClick={() => handleOpenEdit(u)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300">
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
-                    <button onClick={() => handleDelete(u._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose">
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                  <td className="px-6 py-4 no-print">
+                    <div className="flex justify-end space-x-1.5">
+                      <button onClick={() => handleOpenEdit(u)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-600 dark:text-slate-300">
+                        <Edit3 className="w-3.5 h-3.5" />
+                      </button>
+                      <button onClick={() => handleDelete(u._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose">
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -160,9 +168,15 @@ export function ManageUsers() {
             </h3>
 
             <div className="space-y-3 text-xs">
-              <div>
-                <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Full Name</label>
-                <input type="text" required value={fullName} onChange={e => setFullName(e.target.value)} className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl font-semibold dark:text-white" />
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Username</label>
+                  <input type="text" required value={username} onChange={e => setUsername(e.target.value)} className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl font-semibold dark:text-white" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Full Name</label>
+                  <input type="text" required value={fullName} onChange={e => setFullName(e.target.value)} className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-850 rounded-xl font-semibold dark:text-white" />
+                </div>
               </div>
               <div>
                 <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Email</label>
@@ -547,13 +561,15 @@ export function ManageRoutes() {
                       {r.stops?.length || 0} stops
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-right space-x-1.5">
-                    <button onClick={() => handleOpenEdit(r)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350 flex items-center justify-center">
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
-                    <button onClick={() => handleDelete(r._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose flex items-center justify-center">
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                  <td className="px-6 py-4">
+                    <div className="flex justify-end space-x-1.5">
+                      <button onClick={() => handleOpenEdit(r)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350 flex items-center justify-center">
+                        <Edit3 className="w-3.5 h-3.5" />
+                      </button>
+                      <button onClick={() => handleDelete(r._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose flex items-center justify-center">
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -776,13 +792,15 @@ export function ManageSchedules() {
                       {s.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-right space-x-1.5">
-                    <button onClick={() => handleOpenEdit(s)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350 flex items-center justify-center">
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
-                    <button onClick={() => handleDelete(s._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose flex items-center justify-center">
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                  <td className="px-6 py-4">
+                    <div className="flex justify-end space-x-1.5">
+                      <button onClick={() => handleOpenEdit(s)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350 flex items-center justify-center">
+                        <Edit3 className="w-3.5 h-3.5" />
+                      </button>
+                      <button onClick={() => handleDelete(s._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose flex items-center justify-center">
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -1191,13 +1209,15 @@ export function ManageOffers() {
                       {off.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-right space-x-1.5">
-                    <button onClick={() => handleOpenEdit(off)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350">
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
-                    <button onClick={() => handleDelete(off._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose">
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                  <td className="px-6 py-4">
+                    <div className="flex justify-end space-x-1.5">
+                      <button onClick={() => handleOpenEdit(off)} className="p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg text-slate-650 dark:text-slate-350 flex items-center justify-center">
+                        <Edit3 className="w-3.5 h-3.5" />
+                      </button>
+                      <button onClick={() => handleDelete(off._id)} className="p-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/20 rounded-lg text-accent-rose flex items-center justify-center">
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

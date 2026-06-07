@@ -12,6 +12,7 @@ if (!fs.existsSync(JSON_DB_DIR)) {
 
 // Schemas Definitions for MongoDB Mongoose
 const userSchema = new mongoose.Schema({
+  username: { type: String, unique: true, sparse: true },
   fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   phone: { type: String, required: true },

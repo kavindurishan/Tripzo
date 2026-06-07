@@ -39,6 +39,7 @@ const seedDatabase = async () => {
     const customerPass = await bcrypt.hash('customer123', salt);
 
     const admin = await db.create('User', {
+      username: 'admin',
       fullName: 'Tripzo Administrator',
       email: 'admin@tripzo.com',
       phone: '+94 77 123 4567',
@@ -48,6 +49,7 @@ const seedDatabase = async () => {
     });
 
     const operator = await db.create('User', {
+      username: 'operator',
       fullName: 'Southern Transit Operators',
       email: 'operator@tripzo.com',
       phone: '+94 77 987 6543',
@@ -57,6 +59,7 @@ const seedDatabase = async () => {
     });
 
     const customer = await db.create('User', {
+      username: 'kavindu',
       fullName: 'Kavindu Rishan',
       email: 'customer@tripzo.com',
       phone: '+94 71 555 4444',

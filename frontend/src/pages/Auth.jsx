@@ -150,6 +150,7 @@ export function Register() {
   const { register } = useAuth();
   const navigate = useNavigate();
 
+  const [username, setUsername] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -164,7 +165,7 @@ export function Register() {
     setLoading(true);
 
     try {
-      const res = await register(fullName, email, phone, password);
+      const res = await register(username, fullName, email, phone, password);
       if (res.success) {
         navigate('/');
       } else {
@@ -199,6 +200,23 @@ export function Register() {
         )}
 
         <form className="mt-8 space-y-4" onSubmit={handleSubmit}>
+          <div>
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wider">
+              Username
+            </label>
+            <div className="relative">
+              <User className="absolute left-3 top-3.5 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="johndoe123"
+                className="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all dark:text-white"
+              />
+            </div>
+          </div>
+
           <div>
             <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wider">
               Full Name

@@ -49,21 +49,27 @@ const populateBookingObj = async (booking) => {
 // Register Customer
 router.post('/auth/register', async (req, res) => {
   try {
-    const { fullName, email, phone, password } = req.reqBody || req.body;
+    const { username, fullName, email, phone, password } = req.reqBody || req.body;
     
-    if (!fullName || !email || !phone || !password) {
+    if (!username || !fullName || !email || !phone || !password) {
       return res.status(400).json({ success: false, message: 'All fields are required.' });
     }
 
-    const existingUser = await db.findOne('User', { email });
-    if (existingUser) {
+    const existingEmail = await db.findOne('User', { email });
+    if (existingEmail) {
       return res.status(400).json({ success: false, message: 'Email already registered.' });
+    }
+
+    const existingUsername = await db.findOne('User', { username });
+    if (existingUsername) {
+      return res.status(400).json({ success: false, message: 'Username already taken.' });
     }
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = await db.create('User', {
+      username,
       fullName,
       email,
       phone,
@@ -104,7 +110,7 @@ router.post('/auth/login', async (req, res) => {
 
     let user = await db.findOne('User', { email: usernameOrEmail });
     if (!user) {
-      user = await db.findOne('User', { fullName: usernameOrEmail });
+      user = await db.findOne('User', { username: usernameOrEmail });
     }
     
     if (!user) {

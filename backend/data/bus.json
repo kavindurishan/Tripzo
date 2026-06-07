@@ -1,10 +1,10 @@
 [
   {
-    "_id": "0rpgma8vjglooeuuq59qd",
-    "busNumber": "NE-0406",
-    "name": "KRM Express",
+    "_id": "8bm8l6d23ucki7zkpgx8n",
+    "busNumber": "NP-4521",
+    "name": "Tripzo Luxury Liner (AC)",
     "type": "Luxury",
-    "seatCapacity": 54,
+    "seatCapacity": 40,
     "facilities": [
       "Wi-Fi",
       "Charging",
@@ -13,38 +13,39 @@
     ],
     "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=600",
     "status": "Available",
-    "createdAt": "2026-05-21T07:08:18.883Z",
-    "updatedAt": "2026-05-22T07:22:21.616Z"
+    "createdAt": "2026-06-07T07:14:16.674Z",
+    "updatedAt": "2026-06-07T07:14:16.674Z"
   },
   {
-    "_id": "zzh3p6xsdmxycvhbtxslq",
-    "busNumber": "NI-0908",
-    "name": "KRM Express",
-    "type": "Normal",
-    "seatCapacity": 54,
+    "_id": "yr4e9v77ugbj4o1fjs8gr7",
+    "busNumber": "NP-8894",
+    "name": "Southern Express",
+    "type": "Semi Luxury",
+    "seatCapacity": 44,
     "facilities": [
-      "TV",
-      "Charging"
+      "Charging",
+      "AC",
+      "TV"
     ],
     "image": "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&q=80&w=600",
     "status": "Available",
-    "createdAt": "2026-05-21T07:08:18.883Z",
-    "updatedAt": "2026-05-22T07:23:01.701Z"
+    "createdAt": "2026-06-07T07:14:16.674Z",
+    "updatedAt": "2026-06-07T07:14:16.674Z"
   },
   {
-    "_id": "oueepvmrxhpkjd60k65k",
+    "_id": "aln0w6ydb6rsjvc9azu3",
     "busNumber": "NP-1042",
-    "name": "NCG Express",
-    "type": "Semi Luxury",
-    "seatCapacity": 56,
+    "name": "Tripzo Super AC Premium",
+    "type": "AC",
+    "seatCapacity": 36,
     "facilities": [
       "Wi-Fi",
       "Charging",
-      "TV"
+      "AC"
     ],
     "image": "https://images.unsplash.com/photo-1562620644-65ab47390225?auto=format&fit=crop&q=80&w=600",
     "status": "Available",
-    "createdAt": "2026-05-21T07:08:18.883Z",
-    "updatedAt": "2026-05-22T07:23:24.156Z"
+    "createdAt": "2026-06-07T07:14:16.676Z",
+    "updatedAt": "2026-06-07T07:14:16.676Z"
   }
 ]
