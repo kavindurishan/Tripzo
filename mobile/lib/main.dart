@@ -144,11 +144,6 @@ class _SplashScreenState extends State<SplashScreen> {
             end: Alignment.bottomCenter,
             colors: [Color(0xFF0F172A), Color(0xFF020617)],
           ),
-          image: DecorationImage(
-            image: AssetImage('assets/images/tripzo_scenic_hero.png'),
-            fit: BoxFit.cover,
-            opacity: 0.16,
-          ),
         ),
         child: SafeArea(
           child: Column(
