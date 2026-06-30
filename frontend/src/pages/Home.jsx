@@ -4,6 +4,7 @@ import { api } from '../services/api';
 import { 
   Search, Calendar, MapPin, Shield, Compass, Clock, Award, Users, Bus
 } from 'lucide-react';
+import tripzoScenicHero from '../assets/tripzo_scenic_hero.png';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -72,40 +73,43 @@ export default function Home() {
   return (
     <div className="space-y-16 pb-16">
       {/* Hero Section */}
-      <div className="relative min-h-[500px] bg-slate-900 flex items-center justify-center overflow-hidden">
-        {/* Abstract Background Design */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-950 via-slate-950 to-slate-950" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary-600/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent-cyan/10 blur-3xl" />
+      <div 
+        className="relative min-h-[580px] bg-slate-900 flex items-center justify-center overflow-hidden py-16 sm:py-24 bg-cover bg-center"
+        style={{ backgroundImage: `url(${tripzoScenicHero})` }}
+      >
+        {/* Dark overlay with double gradient to ensure readability and contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/50 to-slate-950/85" />
+        <div className="absolute inset-0 bg-slate-950/20 mix-blend-overlay" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex flex-col items-center z-10 w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center z-10 w-full">
           {/* Header Texts */}
           <div className="text-center space-y-4 max-w-3xl mb-12 animate-fade-in">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary-500/10 border border-primary-500/20 text-xs font-bold text-primary-400 uppercase tracking-widest">
-              <Award className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs font-bold text-cyan-400 uppercase tracking-widest">
+              <Award className="w-3.5 h-3.5 text-cyan-400" />
               <span>Premium Transit</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-              Begin your beautiful <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-cyan">Tripzo</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight uppercase font-sans">
+              Book Bus Tickets Online <br className="hidden sm:inline" />
+              in <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-cyan-400 to-accent-cyan">Sri Lanka</span>
             </h1>
-            <p className="text-base sm:text-lg text-slate-400 font-medium">
-              Seamlessly search buses, select seats, make payments, and access digital boarding tickets instantly.
+            <p className="text-base sm:text-lg text-slate-200 font-medium drop-shadow-md max-w-2xl mx-auto">
+              The simplest way to reserve your bus tickets online. Real-time seats, secure payments, and hassle-free travel.
             </p>
           </div>
 
-          {/* Search Form Card */}
-          <div className="w-full max-w-4xl bg-white dark:bg-slate-900/90 border border-slate-200/60 dark:border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-md animate-fade-in-up">
+          {/* Search Form Card (Glassmorphic Container) */}
+          <div className="w-full max-w-4xl bg-slate-950/60 dark:bg-slate-950/70 border border-slate-700/50 dark:border-slate-800/80 rounded-3xl p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md animate-fade-in-up">
             <form onSubmit={handleSearchSubmit} className="grid grid-cols-1 md:grid-cols-4 gap-5 items-end">
               {/* Departure Input */}
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider flex items-center space-x-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-primary-500" />
+                <label className="block text-xs font-bold text-slate-300 dark:text-slate-300 uppercase tracking-wider flex items-center space-x-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-primary-400" />
                   <span>Leaving From</span>
                 </label>
                 <select
                   value={fromInput}
                   onChange={(e) => setFromInput(e.target.value)}
-                  className="w-full py-3 px-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm font-semibold transition-all"
+                  className="w-full py-3 px-4 bg-slate-900/80 dark:bg-slate-950/80 border border-slate-700/60 dark:border-slate-800 text-slate-100 dark:text-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm font-semibold transition-all"
                 >
                   {fromList.map(city => (
                     <option key={city} value={city}>{city}</option>
@@ -115,14 +119,14 @@ export default function Home() {
 
               {/* Destination Input */}
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider flex items-center space-x-1.5">
+                <label className="block text-xs font-bold text-slate-300 dark:text-slate-300 uppercase tracking-wider flex items-center space-x-1.5">
                   <MapPin className="w-3.5 h-3.5 text-accent-cyan" />
                   <span>Going To</span>
                 </label>
                 <select
                   value={toInput}
                   onChange={(e) => setToInput(e.target.value)}
-                  className="w-full py-3 px-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm font-semibold transition-all"
+                  className="w-full py-3 px-4 bg-slate-900/80 dark:bg-slate-950/80 border border-slate-700/60 dark:border-slate-800 text-slate-100 dark:text-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm font-semibold transition-all"
                 >
                   {toList.map(city => (
                     <option key={city} value={city}>{city}</option>
@@ -132,7 +136,7 @@ export default function Home() {
 
               {/* Date Input */}
               <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wider flex items-center space-x-1.5">
+                <label className="block text-xs font-bold text-slate-300 dark:text-slate-300 uppercase tracking-wider flex items-center space-x-1.5">
                   <Calendar className="w-3.5 h-3.5 text-accent-emerald" />
                   <span>Travel Date</span>
                 </label>
@@ -142,7 +146,7 @@ export default function Home() {
                   min={todayStr}
                   value={departureDate}
                   onChange={(e) => setDepartureDate(e.target.value)}
-                  className="w-full py-3 px-4 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm font-semibold transition-all"
+                  className="w-full py-3 px-4 bg-slate-900/80 dark:bg-slate-950/80 border border-slate-700/60 dark:border-slate-800 text-slate-100 dark:text-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm font-semibold transition-all [color-scheme:dark]"
                 />
               </div>
 
